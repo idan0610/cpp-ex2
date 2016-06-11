@@ -1,0 +1,22 @@
+The Song class is an abstract class, and the InstrumentalSong and LyricsSong classes inherits it.
+The Song class contains the the information shared by both its inheriting classes like the title
+and the tags of the song. Each of the InstrumentalSong and LyricsSong contains additional
+information relevant to the specific type of the song. If in some time in the future we want to add
+a new song type, all we need to do is to create a new class represents the new type that inherits
+the Song class, and it a new type to the enum of song types inside the song class.
+
+The Parameters class stores the parameters and the known words from the parameters file. It's
+parsing the parameters file, extract the data and store it inside its data members.
+
+The SortHelper class is used to store the scores of all the songs for some specific words and sort
+the scores by size. The sort is stable. The sorted scores is used to print the relevant songs of
+the relevant query in the right order determined by the score size.
+
+The MIR class is a driver for the whole MIR system. It stores a vector of pointers to all the Song
+objects. It initiates the songs vector using methods from the SongsParser file. The class also
+stores an instance of the Parameters class. It sends a reference to the Parameters object with
+some query every time to the Song objects to calculate its score. After that, the class prints the
+songs that gained a positive score for every query in a descended order.
+
+The BpmKnownWords file contains a struct used to store the information some bpm known word,
+and is used by some of the files to store and access the bpm known words from the parameters file.
